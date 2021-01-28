@@ -1,4 +1,4 @@
-## Pearson's correlation coefficient
+## Pearson's correlation coefficient upto two decimal points
 
 
 import math
