@@ -20,10 +20,7 @@ def std(X):
     std = math.sqrt(variance(X))
     return std
 
-"""
-Loss functions for various ML algorithms
-
-"""
+c
 
 def mse(y_observed, y_predicted):
     "Returns the mse between observed values of y and predicted values"
@@ -38,3 +35,22 @@ def cross_entropy(X):
     # Implement when you have time
     pass
 
+"""
+Distance metrics for various ML algorithms
+
+"""
+
+def eucledian_distance(x1, x2):
+    """
+    Calculates the eucledian distance or l2 distance between two points
+    'x1 and x2 are both array like
+    """
+    distance = 0
+    assert len(x1) == len(x2), "Ensure the length of both arrays or the shape along dimension 0 for two \
+                                arrays in comparison is the same"
+    for i in range(len(x1)):
+        distance.append((x1[i] - x2[i])**2)
+    eucledian_distance = math.sqrt(sum(distance))
+    return eucledian_distance
+
+    
