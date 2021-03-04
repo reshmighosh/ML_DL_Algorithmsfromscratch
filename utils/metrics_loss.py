@@ -12,7 +12,7 @@ def  variance(X):
     "Returns the variance of the features in X"
     mean = np.ones(X.shape) * X.mean(0)
     num_samples = 1/X.shape[0]
-    variance = n_samples * np.diag((X - mean).T.dot(X - mean))
+    variance = num_samples * np.diag((X - mean).T.dot(X - mean))
     return variance
 
 def std(X):
@@ -20,7 +20,33 @@ def std(X):
     std = math.sqrt(variance(X))
     return std
 
-c
+def r2_score(y_observed, y_predicted):
+    """ Returns the r-squared value; goodness of fit measurement
+    R-squared is the statistical measure between 0 and 1 which calculates how
+    similar a regression line is to the data it is trying to fit to
+    1 - model predicts 100% variance in data
+    0 - model predicts none of the variance
+
+
+    `R-squared is the ratio of variance explained by model to total variance of
+    target variable
+    SST: Total sum of squares 
+    SSE/SSR: Sum of Squared Errors/ Sum of Squared Residuals
+    R2 = 1 - SSE/SST
+    """
+    y_mean = np.mean(y_observed)
+    SSE = 0
+    SST = 0
+
+    assert len(y_observed) == len(y_predicted), "Number of predictions are not equal to \
+        observations"
+    for i in range(len(y_observed)):
+        SSE += (y_predicted[i] - y_mean)**2
+        SST += (y_observed[i] - y_mean)**2
+
+    R2 = 1 - (SSE/SST)
+    return R2
+
 
 def mse(y_observed, y_predicted):
     "Returns the mse between observed values of y and predicted values"
@@ -53,4 +79,4 @@ def eucledian_distance(x1, x2):
     eucledian_distance = math.sqrt(sum(distance))
     return eucledian_distance
 
-    
+
