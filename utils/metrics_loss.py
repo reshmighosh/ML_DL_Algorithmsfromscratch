@@ -61,6 +61,15 @@ def cross_entropy(X):
     # Implement when you have time
     pass
 
+def mean_abs_error(y_observed, y_predicted):
+    "Returns the mean of absolute error"
+
+    assert type(y_observed) == np.ndarray, "Make inputs an np array"
+    assert type(y_predicted) == np.ndarray, "Make inputs an np array"
+
+    mae = np.mean(np.abs(y_observed - y_predicted))
+    pass
+
 """
 Distance metrics for various ML algorithms
 
