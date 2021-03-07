@@ -57,9 +57,6 @@ def rmse(y_observed, y_predicted):
     "Returns the root mse between observed values of y and predicted values"
     return math.sqrt(mse(y_observed, y_predicted))
 
-def cross_entropy(X):
-    # Implement when you have time
-    pass
 
 def mean_abs_error(y_observed, y_predicted):
     "Returns the mean of absolute error"
@@ -67,8 +64,23 @@ def mean_abs_error(y_observed, y_predicted):
     assert type(y_observed) == np.ndarray, "Make inputs an np array"
     assert type(y_predicted) == np.ndarray, "Make inputs an np array"
 
-    mae = np.mean(np.abs(y_observed - y_predicted))
+    mae = np.mean(np.abs(y_oserved - y_predicted))
     pass
+
+def entropy(class_labels):
+    """
+    Calculate the entopy at the node of each branch to understand the 
+    split quality and Information Gain - useful in Decision Trees Classifier
+    and ensemble methods using Decision Tree classifier
+    """
+    unique_classes = np.unique(class_labels)
+    log2base = lamda p: math.log(p)/ math.log(2)
+    entropy  = 0
+    for class_l in unique_classes:
+        count = len(class_labels[class_labels == class_l])
+        probability = count/len(class_labels)
+        entropy += -probability * log2(probability)
+    return entropy
 
 """
 Distance metrics for various ML algorithms

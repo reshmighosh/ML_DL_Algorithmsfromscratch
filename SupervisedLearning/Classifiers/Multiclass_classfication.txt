@@ -1,0 +1,9 @@
+Multiclass classification:
+
+
+1. One vs all
+
+
+2. One vs One
+
+
