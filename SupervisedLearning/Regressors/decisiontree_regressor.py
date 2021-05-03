@@ -45,5 +45,52 @@ class DecisionTreeRegressor:
             3.2. Avg the mse for each value of alpha and choose alpha to reduce avg mse
         4. Return subtree from step 2 that corresponds to the chosen value of alpha
 
+    
+    Versions of decision trees:
+
+    Bagging : Bootstrap aggregating - reduces variances
+    builds trees in parallel by using stratified datasets by random sampling using the bootstrap method using replacement
+    this means 2/3 rd of the dataset is seen while 1/3 rd of all training examples never appear - out of bag 
+
+    OOB is similar to leave one out cross validation
+
+    Feature importance: record the total amount of RSS that is decreased due to splits over a given predictor and average over all 
+    B trees
+    for classification  - add total amount of Gini index that is decreased - ue to splits over a given predictor and average over all 
+    B trees
+
+    RF - version of bagging - long with random subset of dataset, rf also uses random selection of features, start with sqrt(p)
+
+    Boosting: Trees are grown sequentialy
+
+        1. fit a tree B with d splits (d+1 leaf nodes) to the training data(X,r)
+        2. Update the tree by adding a shrunken version of new tree - weight assigned 
+        3. update residuals
+        4. shrinkage parameter lambda
+
+
+    AdaBoost: all instances are given equal weights
+    1. After the first tree has learnt, the weights are adjusted so that misclassified instances are given more weightage
+    2. New model = Tree1+Tree2
+    3. Process is repeated and the to predict revised residuals
+
+    Gradient Boosting:
+    1. Trains many models in gradual, additive, and sequential manner.
+    2. Differs from Adaboost on how the model identifies the shortcomings, latter uses by using high weight
+    data points wheres GBM uses gradients of lpss function 
+
+    Hyperparameter tuning for GBM:
+
+
+    XGBM:
+    
+
+
+
+
+
+
+
+
     """
 
